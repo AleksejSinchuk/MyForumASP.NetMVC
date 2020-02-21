@@ -9,6 +9,10 @@ namespace WebForumMVC.Controllers
 {
     public class ForumController : Controller
     {
+
+
+        //------------------------------------------------------------
+        //Login Form
         // GET: Forum
         public ActionResult LoginForm()
         {
@@ -21,5 +25,22 @@ namespace WebForumMVC.Controllers
             //Проверка Логина и Пароля во входе
             return View();
         }
+
+        //------------------------------------------------------------
+
+
+        public ActionResult RegistrForm()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RegistrGetCode(User u)
+        {
+            u.LastLogin = DateTime.Now;
+            int a = 15;
+            //Проверка Логина и Пароля во входе
+            return View();
+        }
+
     }
 }

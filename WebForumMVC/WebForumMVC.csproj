@@ -192,6 +192,7 @@
     <Content Include="Content\LoginForm\vendor\select2\select2.js" />
     <Content Include="Content\LoginForm\vendor\select2\select2.min.css" />
     <Content Include="Content\LoginForm\vendor\select2\select2.min.js" />
+    <Content Include="Content\RegistrForm\RF.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -294,6 +295,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Forum\LoginForm.cshtml" />
+    <Content Include="Views\Forum\RegistrForm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
