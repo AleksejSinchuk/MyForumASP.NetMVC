@@ -33,14 +33,22 @@ namespace WebForumMVC.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult RegistrGetCode(User u)
         {
+            //Добавить проверку Юзера и отправку кода на имейл
             u.LastLogin = DateTime.Now;
-            int a = 15;
-            //Проверка Логина и Пароля во входе
+
+
+            return View("~/Views/Forum/CodeForm.cshtml");
+            
+        }
+        public ActionResult CodeForm()
+        {
             return View();
         }
+
 
     }
 }
