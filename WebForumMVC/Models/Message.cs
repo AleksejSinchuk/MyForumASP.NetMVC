@@ -11,7 +11,7 @@ namespace WebForumMVC.Models
         public int IdUser { get; set; }
 
         public int IdTheme { get; set; }
-        public string msg { get; set; }
+        public string Msg { get; set; }
 
         public DateTime DateTimeMsg { set; get; }
     }
