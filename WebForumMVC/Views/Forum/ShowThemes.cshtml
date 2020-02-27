@@ -3,15 +3,17 @@
     ViewBag.Title = "ShowThemes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@for (int i = 0; i < 20; i++)
-{
-    <table class="tbl">
-        <tr>
-            <td class="td1" style="width:60vw;"><a href="ShowMessInTheme?idTheme=1">Название темы</a></td>
-            <td class="td1" style="width: 15vw;">Количество сообщений в теме</td>
-            <td class="td1" style="width:25vw;">Дата создания и дата последнего ответа</td>
-        </tr>
-    </table>
-}
+
+@foreach (var item in ViewBag.Th)
+
+    {
+        <table class="tbl">
+            <tr>
+                <td class="td1" style="width:60vw;"><a href="ShowMessInTheme?idTheme=@item.Id">Название темы</a></td>
+                <td class="td1" style="width: 15vw;">Количество сообщений в теме</td>
+                <td class="td1" style="width:25vw;">Дата создания и дата последнего ответа</td>
+            </tr>
+        </table>
+    }
 
 

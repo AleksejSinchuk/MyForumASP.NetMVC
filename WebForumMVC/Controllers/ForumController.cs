@@ -10,7 +10,7 @@ namespace WebForumMVC.Controllers
     public class ForumController : Controller
     {
 
-
+      
         //------------------------------------------------------------
         //Login Form
         // GET: Forum
@@ -53,6 +53,9 @@ namespace WebForumMVC.Controllers
 
         public ActionResult ShowThemes()
         {
+            DbForumConext forum = new DbForumConext();
+            ViewBag.Th = forum.Themes;
+           
             return View();
         }
 
