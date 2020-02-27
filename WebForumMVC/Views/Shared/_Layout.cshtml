@@ -1,43 +1,51 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
+    <link rel="icon" href="~/Content/Template/logo.png" />
+    <link rel="stylesheet" href="~/Content/Template/style.css" />
+    <script src="~/Content/Template/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title</title>
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+    <div class="main_body">
+        <header>
+            <div class="logotip"></div>
+        </header>
+        <div class="menu">
+
+
+            <nav class="one">
+                <ul class="topmenu">
+                    <li><a class="a1" href="#">Home</a></li>
+                    <li><a class="a1" href="#">Work</a></li>
+                    <li>
+                        <a class="a1" href="#">About<i class="fa fa-angle-down"></i></a>
+                        <ul class="submenu">
+                            <li><a class="a1" href="">Item 1</a></li>
+                            <li><a class="a1" href="">Item 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="a1" href="#">Blog</a></li>
+                    <li><a class="a1" href="#">Contact</a></li>
                 </ul>
-            </div>
+            </nav>
+
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
+
+
+        <div class="main">
+           @RenderBody()
+
+        </div>
+
         <footer>
-            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+            FOOTER
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

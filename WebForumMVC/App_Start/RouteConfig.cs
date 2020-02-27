@@ -13,10 +13,16 @@ namespace WebForumMVC
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Forum", action = "LoginForm", id = UrlParameter.Optional }
+            //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Forum", action = "LoginForm", id = UrlParameter.Optional }
+                defaults: new { controller = "Forum", action = "ShowThemes", id = UrlParameter.Optional }
             );
         }
     }

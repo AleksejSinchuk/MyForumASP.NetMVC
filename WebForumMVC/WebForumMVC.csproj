@@ -193,6 +193,9 @@
     <Content Include="Content\LoginForm\vendor\select2\select2.min.css" />
     <Content Include="Content\LoginForm\vendor\select2\select2.min.js" />
     <Content Include="Content\RegistrForm\RF.css" />
+    <Content Include="Content\Template\logo.png" />
+    <Content Include="Content\Template\script.js" />
+    <Content Include="Content\Template\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -297,6 +300,8 @@
     <Content Include="Views\Forum\LoginForm.cshtml" />
     <Content Include="Views\Forum\RegistrForm.cshtml" />
     <Content Include="Views\Forum\CodeForm.cshtml" />
+    <Content Include="Views\Forum\ShowThemes.cshtml" />
+    <Content Include="Views\Forum\ShowMessInTheme.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

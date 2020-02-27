@@ -49,6 +49,18 @@ namespace WebForumMVC.Controllers
             return View();
         }
 
+        //-------------------------------------------------------
+
+        public ActionResult ShowThemes()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ShowMessInTheme(int idTheme)
+        {
+            return View();
+        }
 
     }
 }
