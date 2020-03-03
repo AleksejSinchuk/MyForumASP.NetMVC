@@ -17,6 +17,7 @@ header{
 	padding-bottom:0;
 	
 }
+
 .logotip {
 	height: 150px;
 	float: left;
@@ -63,14 +64,19 @@ footer{
 .td1 {
 	vertical-align: top;
 	border: 1px solid black;
+	text-decoration: none;
+	color: black;
 }
-<!------------------------------------------------------------>
-
+.aTheme {
+	text-decoration:none;
+	color:black;
+}
+	
+	
 
 
 h2 {
-  font-family: monospace;
- 
+	font-family: monospace;
 }
 nav {
   width: 660px;

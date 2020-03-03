@@ -3,11 +3,13 @@
     ViewBag.Title = "Mwssages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@for (int i = 0; i < 20; i++)
+@foreach (var item in  ViewBag.msg)
 {
+
+
     <table class="tbl">
         <tr>
-            <td class="td1" style="width:60vw;">Сообщение</td>
+            <td class="td1" style="width:60vw;">@item.Msg</td>
             <td class="td1" style="width: 15vw;">Автор</td>
             <td class="td1" style="width:25vw;">Дата создания <div><button style="background:red;color:greenyellow;">Удалить</button></div></td>
         </tr>

@@ -14,5 +14,16 @@ namespace WebForumMVC.Models
         public string Msg { get; set; }
 
         public DateTime DateTimeMsg { set; get; }
+
+
+
+        public static IEnumerable<Message> GetMessagesByIdTheme(int idTheme)
+        {
+            DbForumConext db = new DbForumConext();
+            IEnumerable<Message> mess= from m in db.Messages
+                                     where m.IdTheme == idTheme
+                                     select m;
+            return mess;
+        }
     }
 }
