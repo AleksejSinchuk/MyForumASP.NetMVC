@@ -14,7 +14,29 @@
     <div class="main_body">
         <header>
             <div class="logotip"></div>
-        </header>
+            <div class="registr_form">
+                @{
+                    if (@ViewBag.IsLogin == null)
+                    {
+
+                        <form action="CheckLogin" method="post">
+                            <div>Email: <input type="text" name="Email" />   </div>
+                            <div>Password: <input type="password" name="Password" />  </div>
+                            <div><button type="submit">Login</button> @Html.ActionLink("Forgot a Password?", "#", "#")</div>
+
+                        </form>
+
+
+                    }
+                    else
+                    {
+                        <div><label>LoginName</label></div>
+                        <div><button type="submit">Logout</button></div>
+                    }
+
+                }
+            </div>
+            </header>
         <div class="menu">
 
 
@@ -25,8 +47,8 @@
                     <li>
                         <a class="a1" href="#">About<i class="fa fa-angle-down"></i></a>
                         <ul class="submenu">
-                            <li><a class="a1" href="">Item 1</a></li>
-                            <li><a class="a1" href="">Item 2</a></li>
+                            <li><a class="a1" href="#">Item 1</a></li>
+                            <li><a class="a1" href="#">Item 2</a></li>
                         </ul>
                     </li>
                     <li><a class="a1" href="#">Blog</a></li>
@@ -39,7 +61,7 @@
 
         <div class="main">
            @RenderBody()
-
+           
         </div>
 
         <footer>
