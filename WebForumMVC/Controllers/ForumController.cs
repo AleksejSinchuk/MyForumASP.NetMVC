@@ -53,13 +53,26 @@ namespace WebForumMVC.Controllers
 
         public ActionResult ShowThemes()
         {
-           
 
-            ViewBag.Th = forum.Themes;
+
+            ViewBag.Th = Theme.GetAllThemes();
            
             return View();
         }
 
+   
+
+        [HttpPost]
+        public ActionResult AddTheme(Theme theme)
+        {
+            theme.DateTimeTheme = DateTime.Now;
+            theme.IdUser = 1;//временно поставил 1,добавить как то юзера
+            Theme.AddTheme(theme);
+            ViewBag.Th = Theme.GetAllThemes();
+            return View("~/Views/Forum/ShowThemes.cshtml");
+        }
+
+        //-------------------------------------------------------
         [HttpGet]
         public ActionResult ShowMessInTheme(int idTheme)
         {
@@ -70,5 +83,13 @@ namespace WebForumMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult AddMessInTheme(int IdTh, Message m)
+        {
+            m.DateTimeMsg = DateTime.Now;
+            m.IdUser = 1;//временно поставил 1,добавить как то юзера
+            ViewBag.msg =Message.AddMess(m, IdTh);
+            return View("~/Views/Forum/ShowMessInTheme.cshtml");
+        }
     }
 }

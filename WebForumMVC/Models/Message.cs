@@ -22,8 +22,18 @@ namespace WebForumMVC.Models
             DbForumConext db = new DbForumConext();
             IEnumerable<Message> mess= from m in db.Messages
                                      where m.IdTheme == idTheme
-                                     select m;
+                                     select m ;
+                                     
+                                    
             return mess;
+        }
+
+        public static IEnumerable<Message> AddMess(Message m, int idTheme)
+        {
+            DbForumConext db = new DbForumConext();
+            db.Messages.Add(m);
+            db.SaveChanges();
+            return GetMessagesByIdTheme(idTheme);
         }
     }
 }
