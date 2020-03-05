@@ -5,25 +5,26 @@
 }
 @{ViewBag.IsLogin = null;}
 @foreach (var item in ViewBag.Th)
-
-{
+{ 
+    
     <table class="tbl">
         <tr>
             <td class="td1" style="width:60vw;"><a style="text-decoration:none; color:black;" href="ShowMessInTheme?idTheme=@item.Id">@item.ThemeName</a></td>
-            <td class="td1" style="width: 15vw;">Количество сообщений в теме</td>
+            <td class="td1" style="width: 15vw;">Количество сообщений в теме @ViewBag.counts[item.Id-1]</td>
             <td class="td1" style="width:25vw;">Дата создания и дата последнего ответа</td>
         </tr>
     </table>
-
+    
 }
 <div>
     <form action="AddTheme" method="post">
         <label>Добавить тему</label><br />
           <table>
-            <tr >
-                <td> <textarea placeholder="Новая тема" cols="100" rows="3" name="ThemeName" ></textarea></td>
-                <td valign="top"><button>Добавить тему</button></td>
-            </tr>
+              <tr>
+                  
+                  <td> <textarea placeholder="Новая тема" cols="100" rows="3" name="ThemeName"></textarea></td>
+                  <td valign="top"><button>Добавить тему</button></td>
+              </tr>
           </table>
        
         

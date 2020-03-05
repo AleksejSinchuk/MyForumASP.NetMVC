@@ -30,10 +30,15 @@ namespace WebForumMVC.Models
 
         public static IEnumerable<Message> AddMess(Message m, int idTheme)
         {
+
+            if (m.Msg != null) {
             DbForumConext db = new DbForumConext();
             db.Messages.Add(m);
-            db.SaveChanges();
+            db.SaveChanges();}
+        
             return GetMessagesByIdTheme(idTheme);
         }
+
+        
     }
 }

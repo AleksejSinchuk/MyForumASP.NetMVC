@@ -55,8 +55,21 @@ namespace WebForumMVC.Controllers
         {
 
 
+            ViewBag.tmp = Theme.GetAllThemes();
+
+               List<int> mass = new List<int>() ;
+            foreach (var item in ViewBag.tmp)
+            {
+                ViewBag.tmp2= Message.GetMessagesByIdTheme(item.Id);
+                int a = 0;
+                foreach (var item2 in ViewBag.tmp2)
+                {
+                    a++;
+                }
+                mass.Add(a);
+            }
+            ViewBag.counts = mass;
             ViewBag.Th = Theme.GetAllThemes();
-           
             return View();
         }
 
@@ -77,18 +90,19 @@ namespace WebForumMVC.Controllers
         public ActionResult ShowMessInTheme(int idTheme)
         {
             ViewBag.msg = Message.GetMessagesByIdTheme(idTheme);
-         
+            ViewBag.Idthm = idTheme;
 
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddMessInTheme(int IdTh, Message m)
+        public ActionResult AddMessInTheme( Message m)
         {
             m.DateTimeMsg = DateTime.Now;
             m.IdUser = 1;//временно поставил 1,добавить как то юзера
-            ViewBag.msg =Message.AddMess(m, IdTh);
+            
+            ViewBag.msg =Message.AddMess(m, m.IdTheme);
             return View("~/Views/Forum/ShowMessInTheme.cshtml");
         }
     }

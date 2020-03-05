@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Mwssages";
+    ViewBag.Title = "Massages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @foreach (var item in ViewBag.msg)
@@ -18,16 +18,7 @@
 <div>
     <form action="AddMessInTheme" method="post">
         <label>Добавить сообщение в тему</label><br />
-        @{
-            foreach (var item in ViewBag.msg)
-            {
-                ViewBag.a = item.IdTheme;
-            }
-
-                <input type="number" name="IdTh" value="@ViewBag.a">
-            
-         }
-        
+        <input type="hidden" name="IdTheme" value="@ViewBag.Idthm">
         <table>
             <tr>
                 <td> <textarea placeholder="Сообщение" cols="100" rows="3" name="Msg"></textarea></td>
