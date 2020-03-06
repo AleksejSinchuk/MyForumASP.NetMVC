@@ -6,14 +6,14 @@
 @foreach (var item in ViewBag.msg)
 {
 
-
     <table class="tbl">
         <tr>
-            <td class="td1" style="width:60vw;">@item.Msg</td>
-            <td class="td1" style="width: 15vw;">Автор</td>
-            <td class="td1" style="width:25vw;">Дата создания <div><button style="background:red;color:greenyellow;">Удалить</button></div></td>
-        </tr>
+            <td class="td1" style="width:50vw;">@item.Msg</td>
+            <td class="td1" style="min-width: 20vw;text-align:center"> user name</td>
+             <td class="td1" style="width:30vw;">@item.DateTimeMsg <div><button style="background:red;color:greenyellow;">Удалить</button></div></td>
+            </tr>
     </table>
+    
 }
 <div>
     <form action="AddMessInTheme" method="post">

@@ -37,6 +37,19 @@ namespace WebForumMVC.Models
             return user;
         }
 
+        public static List<string> GetLoginById(int id)
+        {
+            DbForumConext db = new DbForumConext();
+            List<string> l = new List<string>();
+            IEnumerable<User> user = GetUserById(id);
+            foreach (var item in user)
+            {
+                l.Add(item.Login);
+            }
+            return l;
+        }
+
+
         public static IEnumerable<User> AddUser(User user)
         {
             DbForumConext db = new DbForumConext();

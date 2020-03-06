@@ -54,22 +54,8 @@ namespace WebForumMVC.Controllers
         public ActionResult ShowThemes()
         {
 
-
-            ViewBag.tmp = Theme.GetAllThemes();
-
-               List<int> mass = new List<int>() ;
-            foreach (var item in ViewBag.tmp)
-            {
-                ViewBag.tmp2= Message.GetMessagesByIdTheme(item.Id);
-                int a = 0;
-                foreach (var item2 in ViewBag.tmp2)
-                {
-                    a++;
-                }
-                mass.Add(a);
-            }
-            ViewBag.counts = mass;
-            ViewBag.Th = Theme.GetAllThemes();
+           
+            ViewBag.Th=Theme.ShowThemesAndCounts();
             return View();
         }
 
@@ -81,7 +67,7 @@ namespace WebForumMVC.Controllers
             theme.DateTimeTheme = DateTime.Now;
             theme.IdUser = 1;//временно поставил 1,добавить как то юзера
             Theme.AddTheme(theme);
-            ViewBag.Th = Theme.GetAllThemes();
+            ViewBag.Th = Theme.ShowThemesAndCounts();
             return View("~/Views/Forum/ShowThemes.cshtml");
         }
 
@@ -91,7 +77,8 @@ namespace WebForumMVC.Controllers
         {
             ViewBag.msg = Message.GetMessagesByIdTheme(idTheme);
             ViewBag.Idthm = idTheme;
-
+           
+            
 
             return View();
         }
@@ -102,7 +89,8 @@ namespace WebForumMVC.Controllers
             m.DateTimeMsg = DateTime.Now;
             m.IdUser = 1;//временно поставил 1,добавить как то юзера
             
-            ViewBag.msg =Message.AddMess(m, m.IdTheme);
+           Message.AddMess(m, m.IdTheme);
+            //ViewBag.msg=
             return View("~/Views/Forum/ShowMessInTheme.cshtml");
         }
     }

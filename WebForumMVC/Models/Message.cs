@@ -28,6 +28,18 @@ namespace WebForumMVC.Models
             return mess;
         }
 
+        public static int CountMessInTheme(int idTheme)
+        {
+            IEnumerable<Message> m = GetMessagesByIdTheme(idTheme);
+            int count = 0;
+            if(m!=null)
+            foreach (var item in m)
+            {
+                    count++;       
+            }
+            return count;
+        }
+
         public static IEnumerable<Message> AddMess(Message m, int idTheme)
         {
 
@@ -39,6 +51,7 @@ namespace WebForumMVC.Models
             return GetMessagesByIdTheme(idTheme);
         }
 
-        
+
+
     }
 }

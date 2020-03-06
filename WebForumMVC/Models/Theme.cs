@@ -16,19 +16,53 @@ namespace WebForumMVC.Models
 
         public static IEnumerable<Theme> GetAllThemes()
         {
-         DbForumConext db = new DbForumConext();
-         IEnumerable<Theme> mess = from m in db.Themes
-                                   select m;
-         return mess;
+            DbForumConext db = new DbForumConext();
+            IEnumerable<Theme> mess = from m in db.Themes
+                                      select m;
+            return mess;
         }
 
 
-        public static IEnumerable<Theme> AddTheme(Theme theme) {
-            DbForumConext db = new DbForumConext();
-            db.Themes.Add(theme);
-            db.SaveChanges();
+
+        public static IEnumerable<Theme> AddTheme(Theme theme)
+        {
+            if (theme.ThemeName != null)
+            {
+                DbForumConext db = new DbForumConext();
+                db.Themes.Add(theme);
+                db.SaveChanges();
+            }
             return GetAllThemes();
         }
+
+
+        public static List<ThemesAndCountMess> ShowThemesAndCounts()
+        {
+            IEnumerable <Theme> tmp = Theme.GetAllThemes();
+
+            //NE TO!!!!
+            IEnumerable<Message> messages; 
+            List<ThemesAndCountMess> TACM = new List<ThemesAndCountMess>();
+            foreach (var item in tmp)
+            {
+                messages = Message.GetMessagesByIdTheme(item.Id);
+                DateTime dt;
+                if (messages.Count() != 0)
+                {
+                    Message t = messages.Last<Message>();
+                  dt = t.DateTimeMsg;
+                }
+                else
+                {
+                    dt = DateTime.MinValue;
+                }
+                int a = Message.CountMessInTheme(item.Id);
+                TACM.Add(new ThemesAndCountMess { theme = item,count=a,LastMess=dt
+                });
+            }
+                return TACM;
+        }
+
+
     }
-   
 }
