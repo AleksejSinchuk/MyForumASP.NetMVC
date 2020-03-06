@@ -90,7 +90,7 @@ namespace WebForumMVC.Controllers
             m.IdUser = 1;//временно поставил 1,добавить как то юзера
             
            Message.AddMess(m, m.IdTheme);
-            //ViewBag.msg=
+            ViewBag.msg = Message.GetMessagesByIdTheme(m.IdTheme);
             return View("~/Views/Forum/ShowMessInTheme.cshtml");
         }
     }
