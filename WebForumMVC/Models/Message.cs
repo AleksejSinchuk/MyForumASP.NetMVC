@@ -51,6 +51,16 @@ namespace WebForumMVC.Models
             return GetMessagesByIdTheme(idTheme);
         }
 
+        public static List<MessagesAndUsers> MessagesAndUsers(int idTheme) {
+            List<MessagesAndUsers> list = new List<MessagesAndUsers>();
+            IEnumerable<Message> m = GetMessagesByIdTheme(idTheme);
+            foreach (var item in m)
+            {
+                list.Add(new Models.MessagesAndUsers { mess = item, userLogin =User.GetLoginById(item.IdUser)[0] }) ;
+            }
+
+            return list;
+        }
 
 
     }

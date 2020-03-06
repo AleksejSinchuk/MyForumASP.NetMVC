@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="Models\DbForumConext.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessagesAndUsers.cs" />
     <Compile Include="Models\Theme.cs" />
     <Compile Include="Models\ThemesAndCountMess.cs" />
     <Compile Include="Models\User.cs" />

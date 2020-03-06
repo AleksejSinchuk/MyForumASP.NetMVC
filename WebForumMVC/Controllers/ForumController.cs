@@ -71,11 +71,18 @@ namespace WebForumMVC.Controllers
             return View("~/Views/Forum/ShowThemes.cshtml");
         }
 
+
+
+
+
+
+
+
         //-------------------------------------------------------
         [HttpGet]
         public ActionResult ShowMessInTheme(int idTheme)
         {
-            ViewBag.msg = Message.GetMessagesByIdTheme(idTheme);
+            ViewBag.msg = Message.MessagesAndUsers(idTheme);
             ViewBag.Idthm = idTheme;
            
             
@@ -90,7 +97,7 @@ namespace WebForumMVC.Controllers
             m.IdUser = 1;//временно поставил 1,добавить как то юзера
             
            Message.AddMess(m, m.IdTheme);
-            ViewBag.msg = Message.GetMessagesByIdTheme(m.IdTheme);
+            ViewBag.msg = Message.MessagesAndUsers(m.IdTheme);
             return View("~/Views/Forum/ShowMessInTheme.cshtml");
         }
     }
