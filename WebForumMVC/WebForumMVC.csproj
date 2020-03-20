@@ -138,6 +138,7 @@
     <Compile Include="Models\ThemesAndCountMess.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,9 +300,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Forum\LoginForm.cshtml" />
     <Content Include="Views\Forum\RegistrForm.cshtml" />
-    <Content Include="Views\Forum\CodeForm.cshtml" />
     <Content Include="Views\Forum\ShowThemes.cshtml" />
     <Content Include="Views\Forum\ShowMessInTheme.cshtml" />
   </ItemGroup>

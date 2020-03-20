@@ -19,10 +19,10 @@
                     if (@ViewBag.IsLogin == null)
                     {
 
-                        <form action="CheckLogin" method="post">
+                        <form action="~/Forum/CheckLogin" method="post">
                             <div>Email: <input type="text" name="Email" />   </div>
                             <div>Password: <input type="password" name="Password" />  </div>
-                            <div><button type="submit">Login</button> @Html.ActionLink("Forgot a Password?", "#", "#")</div>
+                            <div><button type="submit">Log In</button> @Html.ActionLink("Registration", "RegistrForm","Forum")</div>
 
                         </form>
 
@@ -30,8 +30,8 @@
                     }
                     else
                     {
-                        <div><label>LoginName</label></div>
-                        <div><button type="submit">Logout</button></div>
+                        <div><label>@ViewBag.IsLogin.Login</label></div>
+                        <form action="~/Forum/Logout" method="post"><div><button type="submit">Log Out</button></div></form>
                     }
 
                 }

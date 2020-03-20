@@ -46,7 +46,9 @@ namespace WebForumMVC.Models
             if (m.Msg != null) {
             DbForumConext db = new DbForumConext();
             db.Messages.Add(m);
-            db.SaveChanges();}
+            db.SaveChanges();
+               
+            }
         
             return GetMessagesByIdTheme(idTheme);
         }

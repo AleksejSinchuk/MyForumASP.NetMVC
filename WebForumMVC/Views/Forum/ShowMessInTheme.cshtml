@@ -3,6 +3,8 @@
     ViewBag.Title = "Massages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@* Передача в мастер страницу Логина Юзера!!!! ViewBag.IsLogin *@
+
 @foreach (var item in ViewBag.msg)
 {
 
@@ -10,23 +12,26 @@
         <tr>
             <td class="td1" style="width:50vw;">@item.mess.Msg</td>
             <td class="td1" style="min-width: 20vw;text-align:center"> @item.userLogin</td>
-             <td class="td1" style="width:30vw;">@item.mess.DateTimeMsg <div><button style="background:red;color:greenyellow;">Удалить</button></div></td>
-            </tr>
+            <td class="td1" style="width:30vw;">@item.mess.DateTimeMsg <div><button style="background:red;color:greenyellow;">Удалить</button></div></td>
+        </tr>
     </table>
-    
+
 }
-<div>
-    <form action="AddMessInTheme" method="post">
-        <label>Добавить сообщение в тему</label><br />
-        <input type="hidden" name="IdTheme" value="@ViewBag.Idthm">
-        <table>
-            <tr>
-                <td> <textarea placeholder="Сообщение" cols="100" rows="3" name="Msg"></textarea></td>
-                <td valign="top"><button type="submit">Добавить сообщение</button></td>
-            </tr>
-        </table>
+@if (ViewBag.IsLogin != null)
+{
+    <div>
+        <form action="AddMessInTheme" method="post">
+            <label>Добавить сообщение в тему</label><br />
+            <input type="hidden" name="IdTheme" value="@ViewBag.Idthm">
+            <table>
+                <tr>
+                    <td> <textarea placeholder="Сообщение" cols="100" rows="3" name="Msg"></textarea></td>
+                    <td valign="top"><button type="submit">Добавить сообщение</button></td>
+                </tr>
+            </table>
 
 
-    </form>
+        </form>
 
-</div>
+    </div>
+}

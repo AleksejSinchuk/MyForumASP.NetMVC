@@ -1,42 +1,47 @@
 ﻿
 @{
+
     ViewBag.Title = "ShowThemes";
     Layout = "~/Views/Shared/_Layout.cshtml";
+   
 }
-@{ViewBag.IsLogin = null;}
-    <table class="tbl">
-        <tr>
-            <td class="td1" style="min-width:50vw;">Название темы</td>
-            <td class="td1" style="min-width: 20vw; text-align:center">Количество сообщений</td>
-            <td class="td1" style="width: 30vw;">Дата создания  и дата последнего ответа</td>
-        </tr>
-    </table>
+@* Передача в мастер страницу Логина Юзера!!!! ViewBag.IsLogin *@
+
+<table class="tbl">
+    <tr>
+        <td class="td1" style="min-width:50vw;">Название темы</td>
+        <td class="td1" style="min-width: 20vw; text-align:center">Количество сообщений в теме</td>
+        <td class="td1" style="width: 30vw;">Дата создания  и дата последнего ответа</td>
+    </tr>
+</table>
 @foreach (var item in ViewBag.Th)
-{ 
-    
+{
+
     <table class="tbl">
         <tr>
-            <td class="td1" style="min-width:50vw;"><a style="text-decoration:none; color:black;" href="ShowMessInTheme?idTheme=@item.theme.Id">@item.theme.ThemeName</a></td>
+            <td class="td1" style="min-width:50vw;"><a style="text-decoration:none; color:black;" href="~/Forum/ShowMessInTheme?idTheme=@item.theme.Id">@item.theme.ThemeName</a></td>
             <td class="td1" style="min-width: 20vw;text-align:center"> @item.count</td>
             <td class="td1" style="width: 30vw;">@item.theme.DateTimeTheme и @item.LastMess</td>
         </tr>
     </table>
-    
+
 }
+@if (ViewBag.IsLogin != null) { 
 <div>
     <form action="AddTheme" method="post">
         <label>Добавить тему</label><br />
-          <table>
-              <tr>
-                  
-                  <td> <textarea placeholder="Новая тема" cols="100" rows="3" name="ThemeName"></textarea></td>
-                  <td valign="top"><button>Добавить тему</button></td>
-              </tr>
-          </table>
-       
-        
+        <table>
+            <tr>
+
+                <td> <textarea placeholder="Новая тема" cols="100" rows="3" name="ThemeName"></textarea></td>
+                <td valign="top"><button>Добавить тему</button></td>
+            </tr>
+        </table>
+
+
     </form>
 
 </div>
+    }
 
 
