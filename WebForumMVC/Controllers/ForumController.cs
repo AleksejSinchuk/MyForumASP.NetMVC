@@ -38,7 +38,7 @@ namespace WebForumMVC.Controllers
                 ViewBag.IsLogin = null;
             }
             ViewBag.Th = Theme.ShowThemesAndCounts();
-            //Проверка Логина и Пароля во входе
+            
             return View("~/Views/Forum/ShowThemes.cshtml");
         }
 
@@ -168,5 +168,26 @@ namespace WebForumMVC.Controllers
             ViewBag.Th = Theme.ShowThemesAndCounts();
             return View("~/Views/Forum/ShowThemes.cshtml");
         }
+
+        [HttpGet]
+        public ActionResult DellTheme(int IdTheme)
+        {
+            Theme.DellTheme(IdTheme);
+            ViewBag.IsLogin = Models.User.GetUserById2(Convert.ToInt32(Session["userId"]));
+            ViewBag.Th = Theme.ShowThemesAndCounts();
+            return View("~/Views/Forum/ShowThemes.cshtml");
+        }
+
+
+        [HttpGet]
+        public ActionResult DellMess(int IdMess, int idTheme )
+        {
+
+            Message.DellOneMess(IdMess);
+            ViewBag.IsLogin = Models.User.GetUserById2(Convert.ToInt32(Session["userId"]));
+            ViewBag.msg = Message.MessagesAndUsers(idTheme);
+            return View("~/Views/Forum/ShowMessInTheme.cshtml");
+        }
     }
+    
 }

@@ -23,9 +23,12 @@ namespace WebForumMVC.Models
             IEnumerable<Message> mess= from m in db.Messages
                                      where m.IdTheme == idTheme
                                      select m ;
-                                     
-                                    
-            return mess;
+            if (mess != null)
+                return mess;
+            else {
+                return null;
+            }
+            
         }
 
         public static int CountMessInTheme(int idTheme)
@@ -64,6 +67,17 @@ namespace WebForumMVC.Models
             return list;
         }
 
+        public static void DellOneMess(int idMess)
+        {
+            DbForumConext db = new DbForumConext();
+            Message m = db.Messages.Find(idMess);
+            if (m != null) {
+                db.Messages.Remove(m);
+            }
+            db.Messages.Remove(m);
+            db.SaveChanges();
+ 
+        }
 
     }
 }

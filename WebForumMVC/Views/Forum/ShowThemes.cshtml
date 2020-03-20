@@ -21,7 +21,7 @@
         <tr>
             <td class="td1" style="min-width:50vw;"><a style="text-decoration:none; color:black;" href="~/Forum/ShowMessInTheme?idTheme=@item.theme.Id">@item.theme.ThemeName</a></td>
             <td class="td1" style="min-width: 20vw;text-align:center"> @item.count</td>
-            <td class="td1" style="width: 30vw;">@item.theme.DateTimeTheme и @item.LastMess</td>
+            <td class="td1" style="width: 30vw;">@item.theme.DateTimeTheme и @item.LastMess @if(ViewBag.IsLogin != null){<div style="background:red;width:57px"><a style="text-decoration:none; color:yellow;" href="~/Forum/DellTheme?idTheme=@item.theme.Id">Удалить</a></div>}</td>
         </tr>
     </table>
 

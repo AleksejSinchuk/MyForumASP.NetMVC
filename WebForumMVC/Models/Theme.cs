@@ -14,6 +14,10 @@ namespace WebForumMVC.Models
 
         public DateTime DateTimeTheme { set; get; }
 
+
+
+
+
         public static IEnumerable<Theme> GetAllThemes()
         {
             DbForumConext db = new DbForumConext();
@@ -63,6 +67,21 @@ namespace WebForumMVC.Models
                 return TACM;
         }
 
+        public static void DellTheme(int idTheme) {
+            IEnumerable<Message> mess = Message.GetMessagesByIdTheme(idTheme);
+            if (mess != null)
+            {
+                foreach (var item in mess)
+                {
+                    Message.DellOneMess(item.Id);
+                }
+            }
+            DbForumConext db = new DbForumConext();
+            Theme t = db.Themes.Find(idTheme);
+            db.Themes.Remove(t);
+            db.SaveChanges();
+
+        }
 
     }
 }

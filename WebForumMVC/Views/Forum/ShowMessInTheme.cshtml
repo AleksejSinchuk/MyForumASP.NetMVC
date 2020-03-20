@@ -12,7 +12,7 @@
         <tr>
             <td class="td1" style="width:50vw;">@item.mess.Msg</td>
             <td class="td1" style="min-width: 20vw;text-align:center"> @item.userLogin</td>
-            <td class="td1" style="width:30vw;">@item.mess.DateTimeMsg <div><button style="background:red;color:greenyellow;">Удалить</button></div></td>
+            <td class="td1" style="width:30vw;">@item.mess.DateTimeMsg @if (ViewBag.IsLogin != null){<div style="background:red;width:57px"><a style="text-decoration:none; color:yellow;" href="~/Forum/DellMess?IdMess=@item.mess.Id&idTheme=@item.mess.IdTheme">Удалить</a></div>}</td>
         </tr>
     </table>
 
