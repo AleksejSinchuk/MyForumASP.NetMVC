@@ -158,6 +158,7 @@ namespace WebForumMVC.Controllers
             }
             Message.AddMess(m, m.IdTheme);
             ViewBag.msg = Message.MessagesAndUsers(m.IdTheme);
+            ViewBag.Idthm = m.IdTheme;
             return View("~/Views/Forum/ShowMessInTheme.cshtml");
         }
 
