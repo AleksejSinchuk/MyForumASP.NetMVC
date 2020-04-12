@@ -199,6 +199,7 @@
     <Content Include="Content\Template\logo.png" />
     <Content Include="Content\Template\script.js" />
     <Content Include="Content\Template\style.css" />
+    <Content Include="DB\ForumDB.mdf" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
